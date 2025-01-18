@@ -1,4 +1,7 @@
 <?php
+define("MYAPP", true);
+
+require "funcs.php";
 
 $title = "My Blog :: About";
 
@@ -36,4 +39,4 @@ $recent_posts = [
         ]
 ];
 
-require_once "about.tpl.php";
+require_once "app/views/about.tpl.php";
