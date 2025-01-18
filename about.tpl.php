@@ -21,10 +21,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about.php">About</a>
+                    <a class="nav-link" href="/about.php">About <span class="sr-only">(current)</a>
                 </li>
             
                 </ul>
@@ -36,18 +36,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                    <?php foreach ($posts as $post): ?>
-
-
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"> <a href="post/<?= $post["slug"] ?>"><?= $post["title"] ?></a></h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="post/<?= $post["slug"] ?>" class="card-link">Card link</a>
-                            </div>
-                        </div>
-                        <?php endforeach; ?> 
-
+                        <?= $post; ?>
                     </div>
                     <div class="col-md-4">
                         <h3>Recents posts  </h3>
