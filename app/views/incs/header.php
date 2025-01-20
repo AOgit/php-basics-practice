@@ -1,4 +1,3 @@
-<?php defined("MYAPP") or die('Forbidden'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +7,9 @@
     <title><?= $title ?? 'TITLE'; ?></title> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <base href="<?= PATH; ?>/">
     <link rel="stylesheet" href="assets/main.css">
+    <link rel="shortcut icon" href="img/favicon.png" />
 </head> 
 <body>
     <div class="wrapper">
@@ -26,7 +27,7 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about.php">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
             
                 </ul>

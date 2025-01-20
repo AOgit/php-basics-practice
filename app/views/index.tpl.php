@@ -1,4 +1,4 @@
-<?php require 'app/views/incs/header.php'; ?>
+<?php require VIEWS . '/incs/header.php'; ?>
 
         <main class="main py-3">
             <div class="container">
@@ -30,4 +30,4 @@
             </div>
         </main>
     
- <?php require 'app/views/incs/footer.php'; ?>
+ <?php require VIEWS . '/incs/footer.php'; ?>

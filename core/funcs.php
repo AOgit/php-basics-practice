@@ -1,7 +1,6 @@
 <?php
 
-defined("MYAPP") or die('Forbidden');
-
+//defined("MYAPP") or die('Forbidden');
 //echo "Hello";
 
 function dump ($data){
@@ -13,4 +12,10 @@ function dump ($data){
 function dd($data){
     dump($data);
     die;
+}
+
+function abort($code = 404)
+{
+    http_response_code($code);
+    require VIEWS . "/errors/{$code}.tpl.php";
 }
