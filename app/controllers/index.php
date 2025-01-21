@@ -1,6 +1,4 @@
 <?php
-//define("MYAPP", true);
-
 
 $title = "My Blog :: Home";
 
