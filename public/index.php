@@ -1,5 +1,4 @@
 <?php
-
 require  dirname(__DIR__) . "/config/config.php";
 
 
@@ -7,7 +6,11 @@ require CORE . "/funcs.php";
 
 require CORE . "/classes/Db.php";
 $db_config = require CONFIG . "/db.php";
-$db = new Db($db_config);
+//$db = new Db($db_config);
+$db = (Db::getInstance())->getconnection($db_config);
+$db1 = (Db::getInstance())->getconnection($db_config);
+// dump($db1);
+// dd($db);
 
 $posts = $db->query("SELECT * FROM posts")->findAll();
 // dd($posts);
