@@ -43,6 +43,7 @@ final class Db
     public function query($query, $params = [])
     {
         $this->stmt = $this->conn->prepare($query);
+        // dump($this->stmt);
         $this->stmt->execute($params);
         return $this;
     }
