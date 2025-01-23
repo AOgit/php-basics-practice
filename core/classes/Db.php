@@ -42,9 +42,13 @@ final class Db
 
     public function query($query, $params = [])
     {
-        $this->stmt = $this->conn->prepare($query);
-        // dump($this->stmt);
-        $this->stmt->execute($params);
+
+        try {
+            $this->stmt = $this->conn->prepare($query);
+            $this->stmt->execute($params);
+        } catch(PDOException $e) {
+            return false;
+        }
         return $this;
     }
 
