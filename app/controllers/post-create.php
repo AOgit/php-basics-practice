@@ -3,7 +3,8 @@
  *
  * @var Db $db
  */
-require CORE .  '/classes/Validator.php';
+
+use myfrm\Validator;
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
