@@ -9,10 +9,8 @@
                 <div class="row">
                     <div class="col-md-12">
 
-
-
                                 <h1>New post</h1>
-                                <form action="" method="post">
+                                <form action="/posts" method="post">
 
                                     <div class="mb-3">
                                         <label for="title" class="form-label">Post title</label>
@@ -35,8 +33,6 @@
                                     </div>
 
                                 </form>
-
-
 
                     </div>
 

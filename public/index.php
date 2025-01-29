@@ -16,12 +16,13 @@ $db1 = (Db::getInstance())->getconnection($db_config);
  //dump($db1);
  //dd($db);
 
-$posts = $db->query("SELECT * FROM posts")->findAll();
-
-$recent_posts = $db->query("SELECT * FROM posts ORDER BY id DESC LIMIT 3")->findAll();
 
 
-require CORE . "/router.php";
+$router = new \myfrm\Router();
+require CONFIG . "/routes.php";
+// dd($router);
+$router->match();
+// require CORE . "/router.php";
 
 
 

@@ -7,7 +7,7 @@
 
                                 <h1 class="card-title"><?= h($post["title"]) ?></h1>
                                 <p class="card-text"> <?= h($post["content"]) ?> </p>
-                                <a href="post/?id=<?= $post["id"] ?>" class="card-link">Card link</a>
+                                <a href="posts/?id=<?= $post["id"] ?>" class="card-link">Card link</a>
 
                     </div>
                 </div>
