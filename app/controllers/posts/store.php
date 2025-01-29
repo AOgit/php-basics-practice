@@ -6,7 +6,7 @@
 
 use myfrm\Validator;
 
-global $db;
+$db = \myfrm\App::get(\myfrm\Db::class); // $db = db(); еще проще
 
 // var_dump(strlen("привет"), mb_strlen("привет"));
 

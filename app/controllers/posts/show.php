@@ -4,7 +4,7 @@
  * @var Db $db
  */
 
-global $db;
+$db = \myfrm\App::get(\myfrm\Db::class); // $db = db(); еще проще
 
 $id = $_GET['id'] ?? 0;
 

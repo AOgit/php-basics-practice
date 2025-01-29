@@ -1,7 +1,6 @@
 <?php
 
-global $db;
-
+$db = \myfrm\App::get(\myfrm\Db::class); // $db = db(); еще проще
 
 $api_data = json_decode(file_get_contents('php://input'), true);
 

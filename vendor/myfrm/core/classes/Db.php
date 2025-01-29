@@ -7,7 +7,7 @@ use PDOStatement;
 
 final class Db
 {
-    private $conn;
+    private $connection;
     private PDOStatement $stmt;
     private static $instance = null;
 
@@ -33,10 +33,12 @@ final class Db
 
     public function getconnection(array $db_config)
     {
-
+        if ($this->connection instanceof PDO){
+            return $this;
+        }
         $dsn = "mysql:host={$db_config['host']};dbname={$db_config['dbname']};charset={$db_config['charset']};}";
         try {
-            $this->conn = new PDO ($dsn, $db_config['user'], $db_config['password'], $db_config['options']);
+            $this->connection = new PDO ($dsn, $db_config['user'], $db_config['password'], $db_config['options']);
             return $this;
         } catch (PDOException $e) {
             // echo "DB error: {$e->getMessage()}";
@@ -49,7 +51,7 @@ final class Db
     {
 
         try {
-            $this->stmt = $this->conn->prepare($query);
+            $this->stmt = $this->connection->prepare($query);
             $this->stmt->execute($params);
         } catch(PDOException $e) {
             return false;
