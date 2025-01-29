@@ -6,21 +6,24 @@ namespace myfrm;
 class Validator {
 
     protected $errors = [];
-    protected $rules_list = ['required', 'min', 'max', 'email'];
+    protected $data_items;
+    protected $rules_list = ['required', 'min', 'max', 'email', 'match'];
     protected $messages = [
         'required' => 'The :fieldname: is required!',
         'min' => ':fieldname: field must be minimum :rulevalue: characters!',
         'max' => ':fieldname: field must be maximum :rulevalue: characters!',
         'email' => 'Not valid Email',
+        'match' => 'The :fieldname: field must match :rulevalue: field',
     ];
 
     public function validate($data = [], $rules = [])
     {
-       // print_arr($data);
-       // print_arr($rules);
+        $this->data_items = $data;
+    //    print_arr($data);
+    //    print_arr($rules);
        foreach ($data as $fieldname => $value)
        {
-            if (in_array($fieldname, array_keys($rules)))
+            if (isset($rules[$fieldname]))
             {
                 // dump($fieldname);
                 $this->check(
@@ -74,6 +77,20 @@ class Validator {
         return !empty($this->errors);
     }
 
+    public function listErrors($fieldname)
+    {
+       $output = '';
+       if (isset($this->errors[$fieldname]))
+       {
+        $output .= "<div class='invalid-feedback d-block'><ul class='list-unstyled'>";
+        foreach ($this->errors[$fieldname] as $error) {
+            $output .= "<li>{$error}</li>";
+        }
+        $output .= "</ul></div>";
+       }
+       return $output;
+    }
+
     protected function required($value, $rule_value)
     {
         // var_dump(__METHOD__, $value, $rule_value);
@@ -98,6 +115,10 @@ class Validator {
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 
-
+    protected function match($value, $rule_value)
+    {
+        // var_dump($this->data_items[$rule_value]);
+        return $value === $this->data_items[$rule_value];
+    }
 
 }

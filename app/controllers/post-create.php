@@ -19,14 +19,16 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     // validation
     $validator = new Validator();
 
-    $validation = $validator->validate(
-        $data,
-        // [
-        //     'title'=>'solo slol cs os',
-        //     'excerpt'=>'solo slol cs os',
-        //     'content'=>'solo slol cs os',
-        //     'email'=>'solo@slolc.os',
-        // ],
+    $validation = $validator->validate(//$data,
+        [
+            'title'=>'so',
+            'excerpt'=>'solo slol cs os',
+            'content'=>'solo slol cs os',
+            'email'=>'solo@slolc.o',
+            'password'=> '234',
+            'repassword'=> '1',
+
+        ],
         $rules = [
             'title' => [
                 'required' => true,
@@ -45,48 +47,32 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             'email' => [
                 'email' => true,
             ],
+
+            'password' => [
+                'required' => true,
+                'min' => 6,
+            ],
+            'repassword' => [
+                'match' => 'password',
+            ],
         ]);
 
-    if($validation->hasErrors())
-    {
-        print_arr($validation->getErrors());
-    }else{
-        echo "SUCCESS!";
-    }
+print_arr($validation->getErrors());
+die();
 
-    die();
-
-/*     if(empty($data['title'])) {
-        $errors['title'] = 'Title is required';
-    }
-    if(empty($data['excerpt'])) {
-    }
-
-    if(empty($data['title'])) {
-        $errors['title'] = 'Title is required';
-    }
-    if(empty($data['excerpt'])) {
-        $errors['excerpt'] = 'Excerpt is required';
-    }
-    if(empty($data['content'])) {
-        $errors['content'] = 'Content is required';
-    }  */
-
-    //  dump($data);
-    //  dd($_POST);
-    if(empty($errors))
+    if(!$validation->hasErrors())
     {
         if ($db->query("INSERT INTO posts (`title`, `content`, `excerpt`) VALUES (:title, :content, :excerpt)", $data))
         {
-            echo "Ok";
+            $_SESSION['success'] = 'OK';
         }
         else
         {
-            echo "DB Error";
+            $_SESSION['error'] = 'DB Error';
         }
-
-        // redirect('/posts/create');
+        redirect();
     }
+
 }
 
 $title = "My Blog :: New post}";
