@@ -9,6 +9,12 @@
                                 <p class="card-text"> <?= h($post["content"]) ?> </p>
                                 <a href="posts/?id=<?= $post["id"] ?>" class="card-link">Card link</a>
 
+                                <form action="/posts" method="post">
+                                    <input type="hidden" name="id" value="<?= $post["id"] ?>">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button type="submit" class="btn btn-primary">Delete</button>
+                                </form>
+
                     </div>
                 </div>
             </div>
