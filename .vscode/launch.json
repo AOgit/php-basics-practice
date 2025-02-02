@@ -41,6 +41,7 @@
             "serverReadyAction": {
                 "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
                 "uriFormat": "http://localhost:%s",
+                // "uriFormat": "https://php-kudlay",
                 "action": "openExternally"
             }
         }
