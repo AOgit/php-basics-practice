@@ -6,11 +6,18 @@ $title = "My Blog :: Home";
 
 $db = \myfrm\App::get(\myfrm\Db::class);
 
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $per_page = 4;
 $total = $db->query("SELECT COUNT(*) FROM posts")->getColumn();
-$pages_cnt = ceil($total / $per_page);
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$pagination = new \myfrm\Pagination((int)$page, $per_page, $total);
+print_arr($pagination);
 
+$start = $pagination->getStart();
+var_dump($start);
+
+die;
+
+$pages_cnt = ceil($total / $per_page);
 
 if ($page < 1){
     $page = 1;
