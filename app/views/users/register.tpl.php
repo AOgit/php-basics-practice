@@ -27,7 +27,8 @@
 
                         <div class="mb-3">
                             <label for="avatar" class="form-label">Avatar</label>
-                            <input class="form-control" name="avatar" type="file" id="formFile">
+                            <input class="form-control" name="avatar" id="avatar" type="file">
+                            <?= isset($validation) ? $validation->listErrors('avatar') : '' ?>
                         </div>
 
                         <div class="mb-3">

@@ -2,6 +2,7 @@
 
 /**  @var \myfrm\Db $db */
 
+
 $title = "My Blog :: Home";
 
 $db = \myfrm\App::get(\myfrm\Db::class);

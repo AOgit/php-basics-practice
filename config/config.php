@@ -2,6 +2,7 @@
 
 define("ROOT", dirname(__DIR__));
 define("WWW", ROOT . '/public');
+const UPLOADS = WWW . '/uploads';
 define("CORE", ROOT . '/vendor/myfrm/core');
 define("APP", ROOT . '/app');
 define("CONFIG", ROOT .'/config');

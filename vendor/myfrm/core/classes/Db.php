@@ -87,4 +87,8 @@ final class Db
        return $this->stmt->fetchColumn();
     }
 
+    public function getInsertId()
+    {
+        return $this->connection->lastInsertId();
+    }
 }

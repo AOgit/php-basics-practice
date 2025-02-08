@@ -1,3 +1,11 @@
 [2025-02-08 11:30:11] DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users2' doesn't exist
 [2025-02-08 11:40:46] DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users2' doesn't exist
 [2025-02-08 20:34:30] DB Error: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[2025-02-08 22:39:00] Error upload avatar
+[2025-02-08 22:43:32] Error upload avatar
+[2025-02-08 22:46:02] Error upload avatar
+[2025-02-08 22:47:37] Error upload avatar
+[2025-02-08 22:48:41] Error upload avatar
+[2025-02-08 22:50:44] Error upload avatar
+[2025-02-08 22:52:53] Error upload avatar
+[2025-02-08 22:59:33] Error upload avatar

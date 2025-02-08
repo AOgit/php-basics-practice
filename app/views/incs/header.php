@@ -37,6 +37,9 @@
 
                     <ul class="d-flex text-white align-items-center list-unstyled mx-5 my-auto gap-3">
                         <?php if (check_auth()): ?>
+                            <li>
+                                <img src="<?= $_SESSION['user']['avatar']; ?>" alt="" style="max-height:56px; border-radius:50%;">
+                            </li>
                             <li class="nav-item">
                             <?= $_SESSION['user']['name']; ?>
                             </li>
@@ -56,5 +59,4 @@
                 </div>
             </nav>
         </header>
-
         <?php get_alerts(); ?>
