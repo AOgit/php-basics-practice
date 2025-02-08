@@ -11,8 +11,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     $db = \myfrm\App::get(\myfrm\Db::class); // $db = db(); еще проще
 
-    $fillable = ['name', 'email', 'password'];
+    $fillable = ['name', 'email', 'password', 'avatar'];
     $data = load($fillable);
+
+    // dump($_POST);
+    // dump($_FILES);
+    if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
+        $data['avatar'] = $_FILES['avatar'];
+    } else {
+        $data['avatar'] = [];
+    }
+    // dd($data);
 
     $errors = [];
 
@@ -45,12 +54,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             'repassword' => [
                 'match' => 'password',
             ],
+            'avatar' => [
+                'required' => true,
+                'ext' => 'jpg|gif',
+                'size' => 1_048_576,
+            ]
 
         ]);
 
 
-    // print_arr($validation->getErrors());
-    // die();
+    print_arr($validation->getErrors());
+    die();
 
     if(!$validation->hasErrors())
     {

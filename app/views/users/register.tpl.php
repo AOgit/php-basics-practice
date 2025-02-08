@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                     <h3>Register Page</h3>
-                    <form action="" method="post">
+                    <form action="" method="post" enctype="multipart/form-data">
 
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
@@ -15,7 +15,7 @@
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input name="email" type="text" class="form-control" id="email" placeholder="Email" value="<?= old('Email') ?>">
+                            <input name="email" type="text" class="form-control" id="email" placeholder="Email" value="<?= old('email') ?>">
                             <?= isset($validation) ? $validation->listErrors('email') : '' ?>
                         </div>
 
@@ -23,6 +23,11 @@
                             <label for="password" class="form-label">Password</label>
                             <input name="password" type="password" class="form-control" id="password" placeholder="Password" value="<?= old('password') ?>">
                             <?= isset($validation) ? $validation->listErrors('password') : '' ?>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="avatar" class="form-label">Avatar</label>
+                            <input class="form-control" name="avatar" type="file" id="formFile">
                         </div>
 
                         <div class="mb-3">
