@@ -1,0 +1,2 @@
+[2025-02-08 11:30:11] DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users2' doesn't exist
+[2025-02-08 11:40:46] DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users2' doesn't exist

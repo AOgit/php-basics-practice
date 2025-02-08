@@ -19,19 +19,9 @@ final class Router
         $matches = false;
         foreach ($this->routes as $route)
         {
-            if (($route['uri'] === $this->uri) && $route['method'] === strtoupper($this->method))
+            if (($route['uri'] === $this->uri) && in_array(strtoupper($this->method), $route['method']))
             {
-                // if ($route['middleware'] == 'guest') {
-                //     if (check_auth()) {
-                //         redirect('/');
-                //     }
-                // }
 
-                // if ($route['middleware'] == 'auth') {
-                //     if (!check_auth()) {
-                //         redirect('/register');
-                //     }
-                // }
                 if ($route['middleware']) {
                     $middleware = MIDDLEWARE[$route['middleware']] ?? false;
                     // dump($middleware);
@@ -62,6 +52,12 @@ final class Router
 
     public function add($uri, $controller, $method)
     {
+        if (is_array($method)) {
+            $method = array_map('strtoupper', $method);
+        } else {
+            $method = [$method];
+        }
+
        $this->routes[] = [
         'uri' => $uri,
         'controller' => $controller,

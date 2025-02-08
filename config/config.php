@@ -7,5 +7,5 @@ define("APP", ROOT . '/app');
 define("CONFIG", ROOT .'/config');
 define("CONTROLLERS", APP . '/controllers');
 define("VIEWS", APP  . '/views');
- define("PATH",  'https://php-kudlay');
-//define("PATH",  'http://localhost:43025');
+define("PATH",  'https://php-kudlay');
+define("ERRORS_LOG_FILE", ROOT . '/errors.log');
