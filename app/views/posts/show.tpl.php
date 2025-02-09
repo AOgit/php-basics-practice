@@ -7,7 +7,7 @@
 
                                 <h1 class="card-title"><?= h($post["title"]) ?></h1>
                                 <p class="card-text"> <?= h($post["content"]) ?> </p>
-                                <a href="posts/?id=<?= $post["id"] ?>" class="card-link">Card link</a>
+                                <a href="posts/<?= $post["slug"] ?>" class="card-link">Card link</a>
 
                                 <form action="/posts" method="post">
                                     <input type="hidden" name="id" value="<?= $post["id"] ?>">

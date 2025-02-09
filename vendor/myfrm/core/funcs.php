@@ -99,3 +99,13 @@ function get_file_ext($file_name)
     $file_ext = explode('.', $file_name);
     return end($file_ext);
 }
+
+function route_params(): array
+{
+    return \myfrm\Router::$route_params;
+}
+
+function route_param (string $key, $default = null)
+{
+    return \myfrm\Router::$route_params[$key] ?? $default;
+}

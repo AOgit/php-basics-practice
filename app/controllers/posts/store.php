@@ -62,7 +62,7 @@ $validation = $validator->validate(
 
 if(!$validation->hasErrors())
 {
-    if ($db->query("INSERT INTO posts (`title`, `content`, `excerpt`) VALUES (:title, :content, :excerpt)", $data))
+    if ($db->query("INSERT INTO posts (`title`, `content`, `excerpt`, `slug`) VALUES (:title, :content, :excerpt, LOWER(REPLACE(title, ' ', '-')) )", $data))
     {
         $_SESSION['success'] = 'OK';
     }
